@@ -1,5 +1,3 @@
-from django.core.serializers import serialize
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, generics, mixins, viewsets
 
@@ -58,7 +56,9 @@ class GenreDetail(APIView):
 
 
 class ActorList(
-    generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin
+    generics.GenericAPIView,
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin
 ):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
